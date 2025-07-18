@@ -22,6 +22,7 @@ function gerarNumeroAleatorio(){
     return numAleatorio
 }
 
+<<<<<<< HEAD
 let numeroAleatorio = gerarNumeroAleatorio()
 
 function verificarNumeroAleatorio(){
@@ -37,6 +38,26 @@ function verificarNumeroAleatorio(){
         modificarHTML(`h1`, `Parabéns`)
         modificarHTML(`p`, `Você acertou o número secreto`)
     }
+=======
+
+
+function verificarNumeroAleatorio(){
+    let numSecreto = 5
+    
+    let numDigitado = document.getElementsByClassName(`container__input`).value
+
+    if(numDigitado > numSecreto){
+        modificarHTML(`h1`, `Você Errou`)
+        modificarHTML(`p`, `Número digitado maior que o número secreto`)
+    }else if(numDigitado < numSecreto){
+        modificarHTML(`h1`, `Você Errou`)
+        modificarHTML(`p`, `Número digitado menor que o número secreto`)
+    }else{
+        modificarHTML(`h1`, `Você Acertou`)
+        modificarHTML(`p`, ``)
+    }
+        
+>>>>>>> e4c4e1c1670c34fed3abd765dcfb55e797bb15e4
 }
 
 
