@@ -1,4 +1,4 @@
-let tentativas = 0
+let tentativas = 1
 let palavra = tentativas == 1 ? `Tentativa` : `Tentativas`
 let numDigitado = document.querySelector(`input`);
 let newGame = document.getElementById(`reiniciar`)
@@ -6,10 +6,11 @@ let newGame = document.getElementById(`reiniciar`)
 function editarHTML(tag, texto) {
   let tagHTML = document.querySelector(tag);
   tagHTML.innerHTML = texto;
+  responsiveVoice.speak(texto, `Brazilian Portuguese Female`, {rate:1.2});
 }
 
 editarHTML(`h1`, `Bem Vindo ao Jogo`);
-editarHTML(`p`, `Digite um número de 1 a 10:`);
+editarHTML(`p`, `Digite um número de 1 a 10`);
 
 function gerarNumAleatorio() {
   let numAleatorio = Math.floor(Math.random() * 10) + 1;
