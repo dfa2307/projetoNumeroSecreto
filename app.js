@@ -1,3 +1,8 @@
+let tentativas = 0
+let palavra = tentativas == 1 ? `Tentativa` : `Tentativas`
+let numDigitado = document.querySelector(`input`);
+let newGame = document.getElementById(`reiniciar`)
+
 function editarHTML(tag, texto) {
   let tagHTML = document.querySelector(tag);
   tagHTML.innerHTML = texto;
@@ -14,11 +19,11 @@ function gerarNumAleatorio() {
 let numSecreto = gerarNumAleatorio()
 
 function verificarNumeroAleatorio() {
-  let numDigitado = document.querySelector(`input`);
-
+  
   if (numDigitado.value == numSecreto) {
     editarHTML(`h1`, `Você Acertou`);
-    editarHTML(`p`, ``);
+    editarHTML(`p`, `${palavra} : ${tentativas}`);
+    newGame.disabled = false;
   } else if (numDigitado.value < numSecreto) {
     editarHTML(`h1`, `Você Errou`);
     editarHTML(`p`, `Número digitado menor que o número secreto`);
@@ -26,4 +31,12 @@ function verificarNumeroAleatorio() {
     editarHTML(`h1`, `Você Errou`);
     editarHTML(`p`, `Número digitado maior que o número secreto`);
   }
+
+  tentativas += 1
+}
+
+function reiniciar(){
+  editarHTML(`h1`, `Bem Vindo ao Jogo`);
+  editarHTML(`p`, `Digite um número de 1 a 10:`);
+  numDigitado.value = ``;
 }
